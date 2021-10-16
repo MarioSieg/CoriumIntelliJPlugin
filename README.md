@@ -1,4 +1,4 @@
-<h3>Corium language support plugin of IntelliJ, CLion and Rider.</h3><br>
+<h3>Corium language support plugin for IntelliJ, CLion and Rider.</h3><br>
 
 IDE plugin for the [Corium](https://github.com/MarioSieg/Corium) programming language.
 
