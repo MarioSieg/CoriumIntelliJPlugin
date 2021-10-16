@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>org.corium.CoriumIntelliJPlugin</id>
+    <name>Corium</name>
+    <vendor email="mario.sieg@gmx.net" url="http://www.corium.dev">Mario Sieg</vendor>
+
+    <description><![CDATA[
+        Enables editor and project support for the Corium programming language.<br>
+        <b>Install Corium and Nominax before using this plugin!</b>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Corium File" implementationClass="org.intellij.sdk.corium.CoriumFileType" fieldName="INSTANCE" language="Corium" extensions="cor"/>
+        <lang.parserDefinition language="Corium" implementationClass="org.intellij.sdk.corium.CoriumParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Corium" implementationClass="org.intellij.sdk.corium.CoriumSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="org.intellij.sdk.corium.CoriumColorSettingsPage"/>
+    </extensions>
+    <actions>
+    </actions>
+</idea-plugin>
