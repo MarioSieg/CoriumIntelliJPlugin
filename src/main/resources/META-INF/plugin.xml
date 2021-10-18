@@ -1,20 +1,36 @@
 <idea-plugin>
     <id>org.corium.CoriumIntelliJPlugin</id>
     <name>Corium</name>
-    <vendor email="mario.sieg@gmx.net" url="http://www.corium.dev">Mario Sieg</vendor>
-
-    <description><![CDATA[
-        Enables editor and project support for the Corium programming language.<br>
-        <b>Install Corium and Nominax before using this plugin!</b>
-    ]]></description>
-
+    <vendor email="mario.sieg@gmx.net" url="https://github.com/MarioSieg/Corium">Mario Sieg</vendor>
+    <description>Enables editor and project support for the Corium programming language.</description>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
-        <fileType name="Corium File" implementationClass="org.intellij.sdk.corium.CoriumFileType" fieldName="INSTANCE" language="Corium" extensions="cor"/>
-        <lang.parserDefinition language="Corium" implementationClass="org.intellij.sdk.corium.CoriumParserDefinition"/>
-        <lang.syntaxHighlighterFactory language="Corium" implementationClass="org.intellij.sdk.corium.CoriumSyntaxHighlighterFactory"/>
-        <colorSettingsPage implementation="org.intellij.sdk.corium.CoriumColorSettingsPage"/>
+
+        <!-- Core module configuration -->
+        <sdkType implementation="de.pinsrq.sdk.corium.module.CoriumSdkType"/>
+        <fileType name="Corium File" implementationClass="de.pinsrq.sdk.corium.language.CoriumFileType" fieldName="INSTANCE" language="Corium" extensions="cor"/>
+
+        <!-- Language implementation configuration-->
+        <lang.parserDefinition language="Corium" implementationClass="de.pinsrq.sdk.corium.language.CoriumParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Corium" implementationClass="de.pinsrq.sdk.corium.language.CoriumSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="de.pinsrq.sdk.corium.language.CoriumColorSettingsPage"/>
+        <lang.commenter language="Corium" implementationClass="de.pinsrq.sdk.corium.language.CoriumCommenter"/>
+
+        <!-- File type support -->
+        <internalFileTemplate name="Corium Empty"/>
+        <internalFileTemplate name="Corium Class"/>
+        <internalFileTemplate name="Corium HelloWorld"/>
+        <fileTypeFactory implementation="de.pinsrq.sdk.corium.language.CoriumFileTypeFactory"/>
+
+        <!-- Execution Configuration -->
+        <programRunner implementation="de.pinsrq.sdk.corium.execution.CoriumRunner"/>
+        <configurationType implementation="de.pinsrq.sdk.corium.execution.CoriumRunConfigurationType"/>
+        <configurationProducer implementation="de.pinsrq.sdk.corium.execution.CoriumRunConfigurationProducer"/>
+
     </extensions>
     <actions>
+        <action id="Corium.NewFile" class="de.pinsrq.sdk.corium.actions.NewCoriumFile" text="Corium File" description="Create new Corium file">
+        <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFromTemplate"/>
+        </action>
     </actions>
 </idea-plugin>
