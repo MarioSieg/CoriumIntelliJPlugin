@@ -333,6 +333,7 @@ public class CoriumParser implements PsiParser, LightPsiParser {
   //     parameterList?
   //     RPAREN
   //     SEPARATOR
+  //     typeName?
   public static boolean nativeFunctionDecl(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "nativeFunctionDecl")) return false;
     if (!nextTokenIs(b, NATIVE)) return false;
@@ -341,6 +342,7 @@ public class CoriumParser implements PsiParser, LightPsiParser {
     r = consumeTokens(b, 0, NATIVE, SEPARATOR, FUNCTION, SEPARATOR, IDENTIFIER, SEPARATOR, LPAREN);
     r = r && nativeFunctionDecl_7(b, l + 1);
     r = r && consumeTokens(b, 0, RPAREN, SEPARATOR);
+    r = r && nativeFunctionDecl_10(b, l + 1);
     exit_section_(b, m, NATIVE_FUNCTION_DECL, r);
     return r;
   }
@@ -349,6 +351,13 @@ public class CoriumParser implements PsiParser, LightPsiParser {
   private static boolean nativeFunctionDecl_7(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "nativeFunctionDecl_7")) return false;
     parameterList(b, l + 1);
+    return true;
+  }
+
+  // typeName?
+  private static boolean nativeFunctionDecl_10(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "nativeFunctionDecl_10")) return false;
+    typeName(b, l + 1);
     return true;
   }
 

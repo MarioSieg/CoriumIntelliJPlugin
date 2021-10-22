@@ -33,4 +33,10 @@ public class CoriumNativeFunctionDeclImpl extends ASTWrapperPsiElement implement
     return findChildByClass(CoriumParameterList.class);
   }
 
+  @Override
+  @Nullable
+  public CoriumTypeName getTypeName() {
+    return findChildByClass(CoriumTypeName.class);
+  }
+
 }

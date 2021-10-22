@@ -298,6 +298,7 @@ nativeFunctionDecl ::=
     parameterList?
     RPAREN
     SEPARATOR
+    typeName?
 
 private block_ ::= localStatement*
 

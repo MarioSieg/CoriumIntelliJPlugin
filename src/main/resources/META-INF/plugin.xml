@@ -2,7 +2,14 @@
     <id>org.corium.CoriumIntelliJPlugin</id>
     <name>Corium</name>
     <vendor email="mario.sieg@gmx.net" url="https://github.com/MarioSieg/Corium">Mario Sieg</vendor>
-    <description>Enables editor and project support for the Corium programming language.</description>
+    <description>
+        Enables editor and project support for the Corium programming language.
+        -> Edit scripts with syntax highlighting and completion
+        -> Run scripts using the Corium SDK and different configurations
+        -> Edit and build Corium projects
+        -> Debug and document Corium files and projects
+        The Corium programming language is an experimental student research project created by Mario Sieg.
+    </description>
     <depends>com.intellij.modules.platform</depends>
     <extensions defaultExtensionNs="com.intellij">
 

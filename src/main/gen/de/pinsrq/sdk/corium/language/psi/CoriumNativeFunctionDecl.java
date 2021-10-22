@@ -10,4 +10,7 @@ public interface CoriumNativeFunctionDecl extends PsiElement {
   @Nullable
   CoriumParameterList getParameterList();
 
+  @Nullable
+  CoriumTypeName getTypeName();
+
 }
