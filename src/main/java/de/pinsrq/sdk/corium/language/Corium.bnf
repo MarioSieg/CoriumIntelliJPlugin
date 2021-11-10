@@ -248,6 +248,11 @@
         XOR = "^"
         NOT = "!"
         COM = "~"
+        URSHI = ">>>>"
+        LROT = "<<<"
+        RROT = ">>>"
+        LSHI = "<<"
+        RSHI = ">>"
         INT = "int"
         FLOAT = "float"
         CHAR = "char"
@@ -379,7 +384,12 @@ binaryOperator ::=
     MOD |
     AND |
     OR |
-    XOR
+    XOR |
+    LROT |
+    RROT |
+    LSHI |
+    RSHI |
+    URSHI
 
 typeName ::=
     QUALIFIED_NAME |

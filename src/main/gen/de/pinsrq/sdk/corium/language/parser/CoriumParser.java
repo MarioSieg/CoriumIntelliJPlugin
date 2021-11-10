@@ -48,7 +48,12 @@ public class CoriumParser implements PsiParser, LightPsiParser {
   //     MOD |
   //     AND |
   //     OR |
-  //     XOR
+  //     XOR |
+  //     LROT |
+  //     RROT |
+  //     LSHI |
+  //     RSHI |
+  //     URSHI
   public static boolean binaryOperator(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "binaryOperator")) return false;
     boolean r;
@@ -61,6 +66,11 @@ public class CoriumParser implements PsiParser, LightPsiParser {
     if (!r) r = consumeToken(b, AND);
     if (!r) r = consumeToken(b, OR);
     if (!r) r = consumeToken(b, XOR);
+    if (!r) r = consumeToken(b, LROT);
+    if (!r) r = consumeToken(b, RROT);
+    if (!r) r = consumeToken(b, LSHI);
+    if (!r) r = consumeToken(b, RSHI);
+    if (!r) r = consumeToken(b, URSHI);
     exit_section_(b, l, m, r, false, null);
     return r;
   }

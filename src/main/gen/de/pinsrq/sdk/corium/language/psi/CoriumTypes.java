@@ -50,6 +50,8 @@ public interface CoriumTypes {
   IElementType LBRACE = new CoriumTokenType("LBRACE");
   IElementType LET = new CoriumTokenType("let");
   IElementType LPAREN = new CoriumTokenType("LPAREN");
+  IElementType LROT = new CoriumTokenType("<<<");
+  IElementType LSHI = new CoriumTokenType("<<");
   IElementType MOD = new CoriumTokenType("%");
   IElementType MUL = new CoriumTokenType("*");
   IElementType NATIVE = new CoriumTokenType("native");
@@ -59,12 +61,15 @@ public interface CoriumTypes {
   IElementType RBRACE = new CoriumTokenType("RBRACE");
   IElementType RETURN = new CoriumTokenType("return");
   IElementType RPAREN = new CoriumTokenType("RPAREN");
+  IElementType RROT = new CoriumTokenType(">>>");
+  IElementType RSHI = new CoriumTokenType(">>");
   IElementType SELF = new CoriumTokenType("self");
   IElementType SEPARATOR = new CoriumTokenType("SEPARATOR");
   IElementType STRING = new CoriumTokenType("string");
   IElementType STRING_LITERAL = new CoriumTokenType("STRING_LITERAL");
   IElementType SUB = new CoriumTokenType("-");
   IElementType TRUE = new CoriumTokenType("true");
+  IElementType URSHI = new CoriumTokenType(">>>>");
   IElementType XOR = new CoriumTokenType("^");
 
   class Factory {

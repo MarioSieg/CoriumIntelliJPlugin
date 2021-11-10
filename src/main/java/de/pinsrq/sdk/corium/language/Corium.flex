@@ -236,11 +236,13 @@ FLOAT_LITERAL = {NUMBER_SIGN}{INT_LITERAL_DEC}[.]{INT_LITERAL_DEC}
 IDENT_CHAR = [a-zA-Z_]
 IDENTIFIER = {IDENT_CHAR}({IDENT_CHAR}|[0-9])*
 QUALIFIED_NAME = {IDENTIFIER}([.]{IDENTIFIER})*
-COMMENT = ("#") [^\r\n]*
+LINE_COMMENT = "#"[^\r\n]*
+BLOCK_COMMENT = "##"[^##]*
 
 %%
 <YYINITIAL> {
-    {COMMENT} { yybegin(YYINITIAL); return CoriumTypes.COMMENT; }
+    {BLOCK_COMMENT} { yybegin(YYINITIAL); return CoriumTypes.COMMENT; }
+    {LINE_COMMENT} { yybegin(YYINITIAL); return CoriumTypes.COMMENT; }
     {SEPARATOR} { return CoriumTypes.SEPARATOR; }
     "let" { return CoriumTypes.LET; }
     "const" { return CoriumTypes.CONST; }
@@ -271,6 +273,11 @@ COMMENT = ("#") [^\r\n]*
     "^" { return CoriumTypes.XOR; }
     "!" { return CoriumTypes.NOT; }
     "~" { return CoriumTypes.COM; }
+    ">>>>" { return CoriumTypes.URSHI; }    // unsigned right shift
+    "<<<" { return CoriumTypes.LROT; }      // signed rotation left
+    ">>>" { return CoriumTypes.RROT; }      // signed rotation right
+    "<<" { return CoriumTypes.LSHI; }       // signed shift left
+    ">>" { return CoriumTypes.RSHI; }       // signed shift right
     "int" { return CoriumTypes.INT; }
     "float" { return CoriumTypes.FLOAT; }
     "char" { return CoriumTypes.CHAR; }
